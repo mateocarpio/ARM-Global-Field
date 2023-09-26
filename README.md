@@ -2,7 +2,7 @@
 
 The Attraction-Repulsion Model with Mass Media is an agent-based model focused on opinion dynamics to study the polarization of a system. This model has been developed by Mateo Carpio and Mario Cosenza. 
 
-## 1) diffusionMPI.py
+## 1) exp_arm_mm.py
 
 This file contains the main code for running the ARM with mass media. The code uses the multiprocessing library to parallelize the code across multiple processors.
 The code has been written in Python and requires the following packages to be installed:
