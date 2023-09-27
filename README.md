@@ -6,6 +6,7 @@ The Attraction-Repulsion Model with Mass Media is an agent-based model focused o
 
 This file contains the main code for running the ARM with mass media. The code uses the multiprocessing library to parallelize the code across multiple processors.
 The code has been written in Python and requires the following packages to be installed:
+   
     numpy
     networkx
     multiprocessing
@@ -19,7 +20,7 @@ The code has been written in Python and requires the following packages to be in
 
 The script can be run on a cluster or on a multi-core machine using the following command:
 
-    python diffusionMPI.py -n <number_of_processes> -E <id_of_experiment> -R <random_seed>
+    python exp_arm_mm.py -n <number_of_processes> -E <id_of_experiment> -R <random_seed>
 
 where <number_of_processes> is the number of processes to be used in parallelization, <id_of_experiment> is the experiment wanted to run, and <random_seed> is the seed.
 
