@@ -320,95 +320,18 @@ class process_data():
         
     
     def create_images(self):
-        
         for i in range(0,len(self.data),10):
-            
             self.save_hist_plot_agents(self.data[i,:-1], i*100)
     
     
     def create_gif(self):
         
         images_in = "./outputfolder/"+ str(self.directory_name) +"/figures/****.png"
-
         gif_image_out = "./outputfolder/"+ str(self.directory_name) +"/animation_hist.gif"
-
         imgs = (Image.open(f) for f in Tcl().call('lsort', '-dict', glob.glob(images_in)))
-
         img = next(imgs)
-
         img.save(fp = gif_image_out, format='GIF', append_images=imgs, save_all=True, duration=100, loop=0)
-
-
-    # Plot the statistical parameters 
-    def plot_stat(self):
-        
-        ploted_steps = []
-        smaxs = []
-        sigma_x = []
-        variances = []
-
-        for i in range(0,len(self.data),10):
-            
-            SM, variance, sig_x = self.get_statistical_parameters(self.data[i,:-1])
-            
-            smaxs.append(SM)
-            variances.append(variance)
-            sigma_x.append(sig_x)
-            ploted_steps.append(i*101)
-            
-        plt.figure(figsize=(10,8))
-        
-        plt.title('For $X_{MM}=$ %.2f' %self.XM, size= 20)
-
-
-        plt.plot(ploted_steps, [x / 100 for x in smaxs],label = '$S_{max}$', linestyle = '-')
-        plt.plot(ploted_steps,variances, label = '$\sigma^2$')
-        plt.plot(ploted_steps,[x / 100 for x in sigma_x], label = '$\sigma_x$', linestyle = '-')
-        plt.ylim((0,1))
-
-        plt.xlabel("# of steps", size= 20)
-        plt.ylabel("Opinions", size= 20)
-
-        ax = plt.gca()
-        ax.tick_params(axis = 'both', which = 'major', labelsize = 16)
-
-        ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
-
-        plt.legend(fontsize=16)
-        
-        plt.savefig("./outputfolder/"+ str(self.directory_name) +"/statistical_parameters{:03d}.png".format(self.iters))
-
-        plt.show()
-        plt.close()
     
-    def plot_history(self):
-    
-        plt.figure(figsize=(10,8))
-
-        plt.title('For $X_{MM}=$ %.2f' %self.XM, size= 20)
-        
-        ploted_steps = [i*101 for i in range(len(self.data))]
-
-        for i in range(len(self.data[0])):
-            
-            plt.plot(ploted_steps, self.data[:,i]
-                     , markersize = 1.5, linestyle = '-')
-
-        plt.xlabel("# of steps", size= 20)
-        
-        plt.ylabel("Opinions", size= 20)
-
-        ax = plt.gca()
-        
-        ax.tick_params(axis = 'both', which = 'major', labelsize = 16)
-
-        ax.tick_params(axis = 'both', which = 'minor', labelsize = 16)
-
-        plt.savefig("./outputfolder/"+ str(self.directory_name) +"/dyaamics{:03d}.png".format(self.iters))
-
-        plt.show()
-        
-        plt.close()
 
 def run_hystory_global(B = 0.5, XM = 0.5):
     params = {'B' : [B], 'XM' : [XM], 'N' : [101], 'E' : [0.1], 'T' : [0.25], 'R' : [0.25], 'S' : [2000]}
