@@ -31,4 +31,8 @@ The second class is called process_data, and it allows us to make all the statis
 
 ## 2) Getting_Results_ARM_MM.ipynb
 
-In this notebook, we plot the results of the experiments. We can find the results for the asymptotic statistical quantities as a function of $x_m$ and $B$ for the global, ring and small-world networks including mass media. 
+In this notebook, we plot the results of the experiments. We can find the results for the asymptotic statistical quantities as a function of $x_m$ and $B$ for the global, ring, and small-world networks, including mass media. 
+
+## 3) videos
+
+This folder contains simulations of some remarkable examples in gif format. 
