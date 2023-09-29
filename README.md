@@ -1,6 +1,8 @@
 # Attraction-Repulsion Model (ARM) with Mass Media
 
-The Attraction-Repulsion Model with Mass Media is an agent-based model focused on opinion dynamics to study the polarization of a system. This model has been developed by Mateo Carpio and Mario Cosenza. 
+The Attraction-Repulsion Model with Mass Media is an agent-based model focused on opinion dynamics to study the polarization of opinions in a system under the effect of a global field representing the media. This model has been developed by Mateo Carpio and Mario Cosenza. 
+
+The repository is organized with the following files: 
 
 ## 1) exp_arm_mm.py
 
