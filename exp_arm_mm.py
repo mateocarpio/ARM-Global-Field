@@ -334,7 +334,7 @@ class process_data():
     
 
 def run_hystory_global(B = 0.5, XM = 0.5):
-    params = {'B' : [B], 'XM' : [XM], 'N' : [101], 'E' : [0.1], 'T' : [0.25], 'R' : [0.25], 'S' : [2000]}
+    params = {'B' : [B], 'XM' : [XM], 'N' : [101], 'E' : [0.1], 'T' : [0.25], 'R' : [0.25], 'S' : [2000000]}
     exp = ARM_MM(params, iters=1, seed=None, savehist=True, network="global")
     exp.arm_MM()
     results = process_data(B = B, XM = XM, iters=1, hist_saved=True, network="global")
@@ -357,7 +357,7 @@ def exp_history_global_xm_00(seed=None, n_cpu=2):
     # Call Pool
     pool = mp.Pool(processes=n_cpu)
     # Define ranges of XM and B values
-    B_range = np.arange(0, 0.80, 0.1)
+    B_range = np.arange(0, 0.8, 0.1)
     XM_range = [0.50]
     # Create a list of tuples containing all combinations of XM and B values
     param_tuples = [(B, XM) for B in B_range for XM in XM_range]
@@ -368,7 +368,7 @@ def exp_history_global_xm_00(seed=None, n_cpu=2):
 
 #Reproduce Figure 3.6 and 3.7
 def run_asymptotic_global(B, XM):
-    params = {'B' : [B], 'XM' : [XM], 'N' : [101], 'E' : [0.1], 'T' : [0.25], 'R' : [0.25], 'S' : [2000]}
+    params = {'B' : [B], 'XM' : [XM], 'N' : [101], 'E' : [0.1], 'T' : [0.25], 'R' : [0.25], 'S' : [2000000]}
     exp = ARM_MM(params, iters=2, seed=None, savehist=False, network="global")
     exp.arm_MM() 
     results = process_data(XM=XM, B=B, iters=2, hist_saved=False, network="global")
@@ -380,7 +380,7 @@ def exp_grid_xm_B_global(seed=None, n_cpu=2):
     pool = mp.Pool(processes=n_cpu)
     # Define ranges of XM and B values
     B_range = np.arange(0, 1.0 + 1/50, 1/50)
-    XM_range = [0.50]
+    XM_range = np.arange(0, 1.0 + 1/50, 1/50)
     # Create a list of tuples containing all combinations of XM and B values
     param_tuples = [(B, XM) for B in B_range for XM in XM_range]
     # Call expC_grid for all parameter tuples using pool.map
@@ -390,7 +390,7 @@ def exp_grid_xm_B_global(seed=None, n_cpu=2):
 
 #Reproduce Figure 3.8
 def run_asymptotic_ring(B, XM):
-    params = {'B' : [B], 'XM' : [XM], 'N' : [101], 'E' : [0.1], 'T' : [0.25], 'R' : [0.25], 'S' : [2000]}
+    params = {'B' : [B], 'XM' : [XM], 'N' : [101], 'E' : [0.1], 'T' : [0.25], 'R' : [0.25], 'S' : [2000000]}
     exp = ARM_MM(params, iters=2, seed=None, savehist=False, network="ring")
     exp.arm_MM() 
     results = process_data(XM=XM, B=B, iters=2, hist_saved=False, network="ring")
@@ -400,7 +400,7 @@ def exp_grid_xm_B_ring(seed=None, n_cpu=2):
     pool = mp.Pool(processes=n_cpu)
     # Define ranges of XM and B values
     B_range = np.arange(0, 1.0 + 1/50, 1/50)
-    XM_range = [0.50]
+    XM_range = np.arange(0, 1.0 + 1/50, 1/50)
     # Create a list of tuples containing all combinations of XM and B values
     param_tuples = [(B, XM) for B in B_range for XM in XM_range]
     # Call expC_grid for all parameter tuples using pool.map
@@ -410,7 +410,7 @@ def exp_grid_xm_B_ring(seed=None, n_cpu=2):
 
 #Reproduce Figure 3.9
 def run_asymptotic_SW(B, XM):
-    params = {'B' : [B], 'XM' : [XM], 'N' : [101], 'E' : [0.1], 'T' : [0.25], 'R' : [0.25], 'S' : [2000]}
+    params = {'B' : [B], 'XM' : [XM], 'N' : [101], 'E' : [0.1], 'T' : [0.25], 'R' : [0.25], 'S' : [2000000]}
     exp = ARM_MM(params, iters=2, seed=None, savehist=False, network="small-world")
     exp.arm_MM() 
     results = process_data(XM=XM, B=B, iters=2, hist_saved=False, network="small-world")
@@ -420,7 +420,7 @@ def exp_grid_xm_B_SW(seed=None, n_cpu=2):
     pool = mp.Pool(processes=n_cpu)
     # Define ranges of B and X_M values
     B_range = np.arange(0, 1.0 + 1/50, 1/50)
-    XM_range = [0.50]
+    XM_range = np.arange(0, 1.0 + 1/50, 1/50)
     # Create a list of tuples containing all combinations of XM and B values
     param_tuples = [(B, XM) for B in B_range for XM in XM_range]
     # Call run_asymptotic_SW for all parameter tuples using pool.map
